@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * This namespace will be used like "Thing" 
+ */
 namespace Microdata\Vocabulary;
 
 use Microdata\DataType\Text\URL,

@@ -1,8 +1,29 @@
 <?php
+/**
+ * @author fabioluciano
+ *
+ */
 namespace Microdata\Writter;
 
+/**
+ * @author fabioluciano
+ *
+ */
 abstract class AbstractFactoryWritter {
-    const WRITTER_HTML = 1;
-    const WRITTER_RDF = 2;
-    const WRITTER_JSON = 3;
+    
+    /**
+     * @var integer
+     */
+    const OUTPUT_FORMAT_HTML = 1;
+    
+    /**
+     * @var integer
+     */
+    const OUTPUT_FORMAT_RDF = 2;
+    
+    /**
+     * @var integer
+     */
+    const OUTPUT_FORMAT_JSON = 3;
+    
 }

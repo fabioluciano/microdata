@@ -1,22 +1,30 @@
 <?php
-
+/**
+ * @author fabioluciano
+ *
+ */
 namespace Microdata\Vocabulary;
 
 use Microdata\Microdata;
 use Microdata\Vocabulary\VocabularyInterface;
 
-abstract class Vocabulary implements VocabularyInterface {
-    protected static $properties;
+abstract class Vocabulary implements VocabularyInterface
+{
 
-    public static function getAllProperties() {
+    protected static $properties;
+    
+    /**
+     * 
+     */
+    public static function getAllProperties()
+    {
         $scoped_class = isset($this) ? get_class() : get_called_class();
         $parents = class_parents($scoped_class);
         $properties = $scoped_class::getProperties();
         array_pop($parents);
         
-        foreach($parents as $parent) {
-            $properties =  array_merge($properties, $parent::getProperties());
-
+        foreach ($parents as $parent) {
+            $properties = array_merge($properties, $parent::getProperties());
         }
         
         ksort($properties);
@@ -24,23 +32,21 @@ abstract class Vocabulary implements VocabularyInterface {
         return $properties;
     }
     
-    protected static function getProperties() {
+    /**
+     * This method returns a 
+     * 
+     * @param string $property The property to return
+     */
+    protected static function getProperties($property = null)
+    {
+        if(! is_null($property)) {
+            if (! in_array($property, static::$properties)) {
+                throw OutOfBoundsException('The property is not defined');
+            }
+            
+            return self::$properties[$property];
+        }
+        
         return static::$properties;
-    }
-    
-    public function __set($property, $value) {
-        // TODO Switch between STRICT AND NON_STRICT constants
-        $scoped_class = isset($this) ? get_class() : get_called_class();
-        
-        var_dump($scoped_class::$properties);
-        
-//         if(in_array($property, array_keys($scoped_class->properties))) {
-            
-//         }
-            
-    }
-    
-    public function __get($property) {
-    
     }
 }
