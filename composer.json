@@ -1,0 +1,19 @@
+{
+  "name" : "fabioluciano/microdata",
+  "version" : "0.1",
+  "require" : {
+    "php" : ">=5.6.0"
+  },
+  "license" : "MIT",
+  "minimum-stability" : "stable",
+  "type" : "library",
+  "authors" : [ {
+    "name" : "Fábio Luciano",
+    "email" : "fabio@naoimporta.com"
+  } ],
+  "autoload" : {
+  	"psr-4" : {
+  		"Microdata\\" : "src/"
+  	}
+  }
+}
