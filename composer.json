@@ -5,7 +5,7 @@
     "php" : ">=5.6.0"
   },
   "license" : "MIT",
-  "minimum-stability" : "stable",
+  "minimum-stability" : "dev",
   "type" : "library",
   "authors" : [ {
     "name" : "Fábio Luciano",
